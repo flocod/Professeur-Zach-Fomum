@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0f;
+  --foreground: #e8e8ed;
+  --primary: #8b5cf6;
+  --primary-glow: rgba(139, 92, 246, 0.4);
+  --signal-color: #a78bfa;
 }
 
 @theme inline {
@@ -12,15 +15,67 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Voice waveform animation */
+@keyframes wave {
+  0%, 100% { height: 8px; }
+  50% { height: 48px; }
+}
+
+@keyframes wave-reverse {
+  0%, 100% { height: 48px; }
+  50% { height: 8px; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.voice-bar {
+  width: 5px;
+  border-radius: 3px;
+  background: var(--signal-color);
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+.voice-bar:nth-child(1) { animation-delay: 0s; }
+.voice-bar:nth-child(2) { animation-delay: 0.15s; }
+.voice-bar:nth-child(3) { animation-delay: 0.3s; }
+.voice-bar:nth-child(4) { animation-delay: 0.45s; }
+.voice-bar:nth-child(5) { animation-delay: 0.6s; }
+.voice-bar:nth-child(6) { animation-delay: 0.75s; }
+.voice-bar:nth-child(7) { animation-delay: 0.9s; }
+.voice-bar:nth-child(8) { animation-delay: 1.05s; }
+
+.voice-bar.idle {
+  animation-name: none;
+  height: 3px;
+  opacity: 0.4;
+}
+
+.pulse-ring {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  animation: pulse-ring 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.pulse-ring:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.pulse-ring:nth-child(3) {
+  animation-delay: 1.6s;
 }
