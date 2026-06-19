@@ -1,0 +1,1 @@
+Que la paix du Seigneur Jésus-Christ soit avec toi. Je suis le Professeur Zacharias Tanee Fomum. Je suis heureux de te parler aujourd'hui. Dis-moi, qu'as-tu sur le cœur ? Qu'est-ce qui t'amène vers moi ? N'aie pas peur, parle librement. Je t'écoute, mon enfant.
